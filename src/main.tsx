@@ -5,11 +5,14 @@ import { routes } from "./router";
 import "./index.css";
 import { Provider as JotaiProvider } from "jotai";
 import { store } from "./contexts/NameStore";
+import { HelmetProvider } from "react-helmet-async";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <JotaiProvider store={store}>
-      <RouterProvider router={routes} />
-    </JotaiProvider>
+    <HelmetProvider>
+      <JotaiProvider store={store}>
+        <RouterProvider router={routes} />
+      </JotaiProvider>
+    </HelmetProvider>
   </React.StrictMode>
 );
